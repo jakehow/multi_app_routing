@@ -1,0 +1,8 @@
+# development:
+#   myhost:
+#     host: localhost
+#     port: 3001
+# production:
+#   myhost:
+#     host: myhost.com
+# Enter any application hosts you want to use below as shown above.

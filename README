@@ -1,0 +1,49 @@
+MultiAppRouting
+================
+
+The goal of the MultiAppRouting plugin is to allow easy linking between multiple rails applications on different hosts.
+
+Installation
+=======
+
+script/plugin install https://svn.howmeta.com/plugins/multi_app_routing
+
+Example
+=======
+
+In routes.rb:
+
+map.application(:billing, :protocol => 'https') do |billing|
+  billing.resources :payments
+end
+
+In config/applications.yml:
+
+production:
+  billing:
+    host: billing.yourdomain.com
+
+
+In your code:
+
+billing.payments_url => https://billing.yourdomain.com/payments
+
+
+Notes
+======
+
+Options must be valid url_for options to do anything. See http://api.rubyonrails.com/classes/ActionController/Base.html#M000267
+
+Options precedence is as follows:
+
+billing.payments_url(:host=>'google.com) (in a view or controller)
+overrides:
+map.application(:billing, :host=>'yahoo.com') (in routes.rb)
+overrides:
+production:
+  billing:
+    host: billing.yourdomain.com
+(in applications.yml)
+	
+
+Copyright (c) 2007 Jake Howerton, released under the MIT license
