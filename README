@@ -6,7 +6,7 @@ The goal of the MultiAppRouting plugin is to allow easy linking between multiple
 Installation
 =======
 
-script/plugin install https://svn.howmeta.com/plugins/multi_app_routing
+script/plugin install git://github.com/jakehow/multi_app_routing.git
 
 Example
 =======
